@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "Taylored Images",
-    "description": "Replaces all images on a webpage with images of Taylor Swift."
+    "description": "Replaces all images on a webpage with images of Taylor Swift.",
     "version": "1.0",
 
     "permissions": [
