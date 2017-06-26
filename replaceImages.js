@@ -1,6 +1,5 @@
 function findImage(i) {
-    //return "http://az616578.vo.msecnd.net/files/2016/06/09/636010490078615374-141787448_cover.jpg"
-    return "http://placekitten.com/" + i.width + "/" + i.height;
+    return "http://az616578.vo.msecnd.net/files/2016/06/09/636010490078615374-141787448_cover.jpg"
 }
 
 function replaceImages() {
