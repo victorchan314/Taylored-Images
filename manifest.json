@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+
+    "name": "Taylored Images",
+    "description": "Replaces all images on a webpage with images of Taylor Swift."
+    "version": "1.0",
+
+    "permissions": [
+        "activeTab"
+    ],
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["replaceImages.js"]
+        }
+    ],
+
+    "browser_action": {
+        "default_title": "Taylored Images"
+    }
+}
