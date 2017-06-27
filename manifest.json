@@ -10,7 +10,7 @@
     ],
 
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", "background.js"],
         "persistent": false
     },
 
