@@ -10,14 +10,14 @@
     ],
 
     "background": {
-        "scripts": ["https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", "background.js"],
+        "scripts": ["background.js"],
         "persistent": false
     },
 
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["replaceImages.js"]
+            "js": ["jquery.min.js", "replaceImages.js"]
         }
     ],
 
