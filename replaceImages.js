@@ -3,9 +3,8 @@ function findImage(i) {
         var images = $("img");
         for (var i = 0; i < images.length; i++) {
             var s = images[i].src;
-            console.log(s);
             if (s.startsWith("data")) {
-                alert(s);
+                return s;
             }
         }
         return "http://az616578.vo.msecnd.net/files/2016/06/09/636010490078615374-141787448_cover.jpg"
