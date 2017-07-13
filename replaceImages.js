@@ -4,7 +4,6 @@ function findImage(i) {
         for (var i = 0; i < images.length; i++) {
             var s = images[i].src;
             if (s.startsWith("data")) {
-                console.log(s);
                 return s;
             }
         }
