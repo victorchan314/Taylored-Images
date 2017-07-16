@@ -1,16 +1,7 @@
 function findImage(img) {
-    $.get("", null, null, "text")
-        .done(function(code) {
-            alert(code);
-//            var images = $("img");
-//            for (var i = 0; i < images.length; i++) {
-//                var s = images[i].src;
-//                if (s.startsWith("data")) {
-//                    return s;
-//                }
-//            }
-//            return "http://az616578.vo.msecnd.net/files/2016/06/09/636010490078615374-141787448_cover.jpg"
-        });
+    $.getJSON("https://www.googleapis.com/customsearch/v1?q=Taylor+Swift&cx=" + config.SEARCH_ENGINE_ID + "&num=1&searchType=image&key=" + config.API_KEY, function(data) {
+        console.log(data.items[0].link);
+        //return data.items[0].link;
     });
 }
 
