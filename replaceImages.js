@@ -1,14 +1,16 @@
 function findImage(img) {
-    chrome.tabs.executeScript({
-        code: '$.getScript("", function() {})';
-        var images = $("img");
-        for (var i = 0; i < images.length; i++) {
-            var s = images[i].src;
-            if (s.startsWith("data")) {
-                return s;
-            }
-        }
-        return "http://az616578.vo.msecnd.net/files/2016/06/09/636010490078615374-141787448_cover.jpg"
+    $.get("", null, null, "text")
+        .done(function(code) {
+            alert(code);
+//            var images = $("img");
+//            for (var i = 0; i < images.length; i++) {
+//                var s = images[i].src;
+//                if (s.startsWith("data")) {
+//                    return s;
+//                }
+//            }
+//            return "http://az616578.vo.msecnd.net/files/2016/06/09/636010490078615374-141787448_cover.jpg"
+        });
     });
 }
 
