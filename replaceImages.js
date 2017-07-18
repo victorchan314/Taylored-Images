@@ -1,11 +1,7 @@
 function findImage(img) {
     var l = null;
-    $.ajax({
-        url: "https://www.googleapis.com/customsearch/v1?q=Taylor+Swift&cx=" + keys.SEARCH_ENGINE_ID + "&num=10&searchType=image&key=" + keys.API_KEY,
-        success: function(data) {
-            l = data.items[Math.floor(10*Math.random())].link;
-        },
-        async: false
+    $.getJSON({"https://www.googleapis.com/customsearch/v1?q=Taylor+Swift&cx=" + keys.SEARCH_ENGINE_ID + "&num=10&searchType=image&key=" + keys.API_KEY, function(data) {
+        return l = data.items[Math.floor(10*Math.random())].link;
     });
     return l;
 }
