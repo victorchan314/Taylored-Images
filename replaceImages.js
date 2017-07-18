@@ -12,13 +12,15 @@ function findImage(img) {
 function specifySize(img) {
     var ratio = img.width / img.height;
     var difference = Math.pow(ratio-1, 2);
+    var k = 1;
     for (key in ratios) {
         var newDiff = Math.pow(ratio-key, 2);
         if (newDiff < difference) {
             difference = newDiff;
+            k = key;
         }
     }
-    return newDiff;
+    return ratios[k];
     //return (100*Math.ceil(w/100)).toString() + "x" + (100*Math.ceil(h/100)).toString();
 }
 
