@@ -10,15 +10,16 @@ function findImage(img) {
 }
 
 function specifySize(img) {
-    var w = img.width;
-    var h = img.height;
-    var ratio = w / h;
+    var ratio = img.width / img.height;
+    var difference = Math.pow(ratio-1, 2);
     for (key in ratios) {
-        if (Math.pow(ratio-key, 2) < .0004) {
-            return ratios[key];
+        var newDiff = Math.pow(ratio-key, 2);
+        if (newDiff < difference) {
+            difference = newDiff;
         }
     }
-    return (100*Math.ceil(w/100)).toString() + "x" + (100*Math.ceil(h/100)).toString();
+    return newDiff;
+    //return (100*Math.ceil(w/100)).toString() + "x" + (100*Math.ceil(h/100)).toString();
 }
 
 function replaceImages() {
