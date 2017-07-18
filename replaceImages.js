@@ -1,29 +1,41 @@
 function findImage(img) {
-    var l = null;
-    $.getJSON({"https://www.googleapis.com/customsearch/v1?q=Taylor+Swift&cx=" + keys.SEARCH_ENGINE_ID + "&num=10&searchType=image&key=" + keys.API_KEY, function(data) {
-        return l = data.items[Math.floor(10*Math.random())].link;
-    });
-    return l;
+    var w = img.width;
+    var h = img.height;
+    $.getJSON("https://www.googleapis.com/customsearch/v1?q=Taylor+Swift+imagesize:" + specifySize(img) + "&cx=" + keys.SEARCH_ENGINE_ID + "&num=10&searchType=image&key=" + keys.API_KEY,
+            function(data) {
+                img.src = data.items[Math.floor(10*Math.random())].link;
+                img.width = w;
+                img.height = h;
+            });
 }
 
-function specifySize(i) {
-    var ratio = i.width / i.height;
-    function ssr(x, y) {
-        return Math.sqrt(Math.pow(i.width-x, 2) + Math.pow(i.height-y, 2));
+function specifySize(img) {
+    var w = img.width;
+    var h = img.height;
+    var ratio = w / h;
+    for (key in ratios) {
+        if (Math.pow(ratio-key, 2) < .0004) {
+            return ratios[key];
+        }
     }
-//    if ssr(
+    return (100*Math.ceil(w/100)).toString() + "x" + (100*Math.ceil(h/100)).toString();
 }
 
 function replaceImages() {
     var imgs = document.getElementsByTagName("img");
     for (var i=0; i<imgs.length; i++) {
-        var w = imgs[i].width;
-        var h = imgs[i].height;
-        imgs[i].src = findImage(imgs[i]);
-        imgs[i].width = w;
-        imgs[i].height = h;
+        findImage(imgs[i]);
     }
 }
 
-var ratios = [9 / 16, 5 / 8, 3 / 4, 4 / 5, 1 / 1, 5 / 4, 4 / 3, 8 / 5, 16 / 9];
+var ratios = {}
+ratios[9 / 16] = "1080x1920";
+ratios[5 / 8] = "500x800";
+ratios[3 / 4] = "768x1024";
+ratios[4 / 5] = "1024x1280";
+ratios[1 / 1] = "2048x2048";
+ratios[5 / 4] = "1280x1024";
+ratios[4 / 3] = "1920x1440";
+ratios[8 / 5] = "3840x2400";
+ratios[16 / 9] = "1920x1080";
 window.onload = replaceImages();
