@@ -31,4 +31,6 @@ var keys = {
     API_KEY : "my_api_key";
 }
 
-You are good to go! 
+Note: If you use the free edition of Google Custom Search, you will only be able to replace 100 images per day. That means that if you have a webpage with 50 images and you refresh it twice, you are out of luck! You will no longer be able to bask in the glory of Taylor Swift. Check out the [Custom Search Engine pricing](https://developers.google.com/custom-search/json-api/v1/overview#pricing).
+
+Otherwise, you are good to go! Enable the extension, agree to the permissions, and enjoy the beauty of Taylor Swift!
